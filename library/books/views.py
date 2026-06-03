@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Book
 from django.shortcuts import get_object_or_404
-from .forms import BookForm
+from .forms import BookForm , AuthorForm
 
 def list_book(request):
 
@@ -49,5 +49,25 @@ def update_create_book(request, id=None):
     return render(
         request,
         'book_form.html',
+        {'form': form}
+    )
+
+
+
+def add_author(request):
+
+    if request.method == 'POST':
+
+        form = AuthorForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+    else:
+        form = AuthorForm()
+
+    return render(
+        request,
+        'author_add.html',
         {'form': form}
     )

@@ -12,3 +12,10 @@ class BookForm(forms.ModelForm):
             'date_published',
             'isbn'
         ]
+
+class AuthorForm(forms.ModelForm):
+
+    class Meta:
+        model = Author
+
+        fields = '__all__'

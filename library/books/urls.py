@@ -22,4 +22,10 @@ urlpatterns = [
         views.update_create_book,
         name='book_edit'
     ),
+
+    path(
+        'author/add/',
+        views.add_author,
+        name='author_add'
+),
 ]
